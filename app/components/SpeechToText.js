@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
+import { useRef } from "react";
 import { MicrophoneIcon } from '@heroicons/react/24/outline'
 
 
@@ -13,6 +14,9 @@ export default function SpeechToText() {
   const [isListening, setIsListening] = useState(false);
   /* State to handle errors: */
   const [error, setError] = useState(null);
+
+  /* UseRef to store the SpeechRecognition instance: */
+  const recognition = useRef(null);
   
   
   /* Function to start recording audio */
@@ -37,7 +41,10 @@ export default function SpeechToText() {
 
     /* Update the transcript: */
     recognition.onresult = async function (event) {
-      setTranscript(event.results[0][0].transcript);
+      const results = Array.from(event.results)
+        .map((result) => result[0].transcript)
+        .join(""); /* Join the partial results */
+      setTranscript(results);
     }
 
     /* Handle errors: */
@@ -97,7 +104,7 @@ export default function SpeechToText() {
 
         {/* Microphone: */}
         <button className="bg-white p-4 rounded-full border-2 border-black"
-                onClick={startRecording}
+                onClick={isListening? stopRecording : startRecording}
         >
           <MicrophoneIcon className="w-5 h-5 text-black"/>
         </button>
