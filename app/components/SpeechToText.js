@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
 import { MicrophoneIcon } from '@heroicons/react/24/outline'
@@ -16,11 +16,11 @@ export default function SpeechToText() {
   const [error, setError] = useState(null);
 
   /* UseRef to store the SpeechRecognition instance: */
-  const recognition = useRef(null);
+  const recognitionRef = useRef(null);
   
   
-  /* Function to start recording audio */
-  const startRecording = () =>{
+  /* Function to initialize the recognition/recording: */
+  useEffect(() => {
     /* Check if the browser supports speech recognition: */
     if (!("SpeechRecognition" in window || "webkitSpeechRecognition" in window)) {
       setError("Speech recognition is not supported in this browser.");
@@ -32,7 +32,7 @@ export default function SpeechToText() {
     const recognition = new SpeechRecognition();
 
     /* Keep listening until manually stopped and
-     * show partial results while speaking: */
+    * show partial results while speaking: */
     recognition.continuous = true;
     recognition.interimResults = true;
 
@@ -57,19 +57,27 @@ export default function SpeechToText() {
       setIsListening(false);
     }
 
-    /* Start the recognition of speech and update listening state: */
-    recognition.start();
-    setIsListening(true);
+    /* Store the instance of recognition in recognitionRef: */
+    recognitionRef.current = recognition;
+  }, []);  /* Initialize the recogntion instance when the component mounts: */
+
+
+
+
+  /* Handle start recording audio */
+  const startRecording = () => {
+    if (recognitionRef.current) {
+      recognitionRef.current.start();
+      setIsListening(true); 
+    }
   }
 
-
-
-  /* Function to stop recording audio */
+  /* Handle stop recording audio */
   const stopRecording = () => {
-    setIsListening(false);
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SpeechRecognition();
-    recognition.stop();
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+      setIsListening(false);
+    }
   }
 
 
