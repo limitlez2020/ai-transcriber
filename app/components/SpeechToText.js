@@ -16,7 +16,7 @@ export default function SpeechToText() {
   
   
   /* Function to start recording audio */
-  function startRecording() {
+  const startRecording = () =>{
     /* Check if the browser supports speech recognition: */
     if (!("SpeechRecognition" in window || "webkitSpeechRecognition" in window)) {
       setError("Speech recognition is not supported in this browser.");
@@ -55,7 +55,19 @@ export default function SpeechToText() {
     setIsListening(true);
   }
 
-  
+
+
+  /* Function to stop recording audio */
+  const stopRecording = () => {
+    setIsListening(false);
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.stop();
+  }
+
+
+
+  /* Render the component: */
   return (
     <div className="flex flex-col w-full h-screen bg-[#fcf5eb]">
       {/* Header container: */}
