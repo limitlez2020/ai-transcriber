@@ -52,16 +52,6 @@ export default function SpeechToText() {
       setError(event.error);
     }
 
-    /* Handle end of speech recognition: */
-    recognition.onend = () => {
-      setIsListening(false);
-      /* Restart the recognition if user is still speaking: (helpful for mobile) */
-      if (isListening) {
-        recognitionRef.current.start();
-        setIsListening(true);
-      }
-      
-    }
 
     /* Store the instance of recognition in recognitionRef: */
     recognitionRef.current = recognition;
