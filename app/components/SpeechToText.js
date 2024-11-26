@@ -57,7 +57,7 @@ export default function SpeechToText() {
       /* Restart the recognition if user is still speaking:
        * Helpful for continuous listening, especially in mobile devices */
       if (isListening) {
-        recognitionRef.current.start();
+        recognition.start();
       }
       else {
         setIsListening(false);
