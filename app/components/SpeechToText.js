@@ -54,7 +54,8 @@ export default function SpeechToText() {
 
     /* Handle end of speech recognition: */
     recognition.onend = () => {
-      /* Restart the recognition if user is still speaking: (helpful for mobile) */
+      /* Restart the recognition if user is still speaking:
+       * Helpful for continuous listening, especially in mobile devices */
       if (isListening) {
         recognitionRef.current.start();
       }
