@@ -105,7 +105,7 @@ export default function SpeechToText() {
       {/* Main Content Container: */}
       <div className="flex flex-col flex-1 items-center justify-center gap-5">
         {/* Transcript Box: */}
-        <div className="w-1/2 h-1/2 border-2 border-black rounded-xl p-4">
+        <div className="sm:w-1/2 w-4/5 h-1/2 border-2 border-black rounded-xl p-4">
           <p className="text-sm text-black font-semibold pb-2">Transcript:</p>
           <p className="text-sm text-black italic">{transcript}</p>
         </div>
