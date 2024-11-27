@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
 import { MicrophoneIcon } from '@heroicons/react/24/outline'
+import { StopIcon } from '@heroicons/react/24/solid'
 
 
 
@@ -62,7 +63,7 @@ export default function SpeechToText() {
 
     /* Store the instance of recognition in recognitionRef: */
     recognitionRef.current = recognition;
-  }, [isListening]);  /* Initialize the recogntion instance when the component mounts: */
+  }, []);  /* Initialize the recogntion instance when the component mounts: */
 
 
 
@@ -71,6 +72,10 @@ export default function SpeechToText() {
   const startRecording = () => {
     if (recognitionRef.current) {
       recognitionRef.current.start();
+
+      /* Make recognitiion continuous: */
+      // recognitionRef.current.continuous = true;
+
       setIsListening(true); 
     }
   }
@@ -80,6 +85,9 @@ export default function SpeechToText() {
     if (recognitionRef.current) {
       recognitionRef.current.stop();
       setIsListening(false);
+      /* Make recognitiion not continuous: */
+      // recognitionRef.current.continuous = false;
+      // 
     }
   }
 
@@ -114,10 +122,19 @@ export default function SpeechToText() {
         </div>
 
         {/* Microphone: */}
-        <button className="bg-white p-4 rounded-full border-2 border-black"
+        <button className={`${isListening? "bg-red-400" : "bg-white"} bg-white p-4 rounded-full border-2 border-black`}
                 onClick={isListening? stopRecording : startRecording}
         >
-          <MicrophoneIcon className="w-5 h-5 text-black"/>
+          {/* Change icon based on when listening or not: */}
+          {isListening?
+            /* Recording Icon: */
+            <div className="w-5 h-5 flex items-center justify-center">
+              <div className="w-4/5 h-4/5 bg-white border-black border-2 rounded-md animate-pulse"></div>
+            </div>
+            :
+            /* Microphone Icon -- to start recording: */
+            <MicrophoneIcon className="w-5 h-5 text-black"/>
+          }
         </button>
       </div>
     </div>
