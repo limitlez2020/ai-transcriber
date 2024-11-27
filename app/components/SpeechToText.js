@@ -118,10 +118,18 @@ export default function SpeechToText() {
       {/* Main Content Container: */}
       <div className="flex flex-col flex-1 items-center justify-center gap-5">
         {/* Transcript Box: */}
-        <div className="sm:w-1/2 w-4/5 h-1/2 border-2 border-black rounded-xl p-4">
-          <p className="text-sm text-black font-semibold pb-2">Transcript:</p>
-          <p className="text-sm text-black italic">{transcript}</p>
+        <div className="flex flex-col sm:w-1/2 w-4/5 h-1/2 border-2 border-black rounded-xl p-4 z-10">
+          {/* Header: */}
+          <p className="text-sm text-black font-semibold pb-3">Transcript:</p>
+
+          {/* Transcript: */}
+          <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-[#676767] scrollbar-track-[#f4ede4]">
+            <p className="text-sm text-black italic pr-2">
+              {transcript}
+            </p>
+          </div>
         </div>
+
 
         {/* Recording Icons: */}
         <button className={`${isListening? "bg-red-400" : "bg-white"} p-4 rounded-full border-2 border-black z-10`}
