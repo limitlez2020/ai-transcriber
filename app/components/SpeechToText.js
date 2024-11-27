@@ -4,7 +4,6 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
 import { MicrophoneIcon } from '@heroicons/react/24/outline'
-import { StopIcon } from '@heroicons/react/24/solid'
 
 
 
@@ -93,9 +92,12 @@ export default function SpeechToText() {
 
 
 
+
   /* Render the component: */
   return (
     <div className="flex flex-col w-full h-screen bg-[#fcf5eb]">
+      {/* Put the noise background: */}
+      <div className="absolute w-full h-full opacity-10 bg-noise-patern"></div>
       {/* Header container: */}
       <div className="flex relative items-center justify-center pt-7">
         {/* Box with shadow: */}
@@ -122,7 +124,7 @@ export default function SpeechToText() {
         </div>
 
         {/* Recording Icons: */}
-        <button className={`${isListening? "bg-red-400" : "bg-white"} p-4 rounded-full border-2 border-black`}
+        <button className={`${isListening? "bg-red-400" : "bg-white"} p-4 rounded-full border-2 border-black z-10`}
                 onClick={isListening? stopRecording : startRecording}
         >
           {/* Change icon based on when listening or not: */}
