@@ -127,12 +127,12 @@ export default function SpeechToText() {
         >
           {/* Change icon based on when listening or not: */}
           {isListening?
-            /* Recording Icon: */
+            /* Stop Icon: */
             <div className="w-5 h-5 flex items-center justify-center">
               <div className="w-4/5 h-4/5 bg-white border-black border-2 rounded-md animate-pulse"></div>
             </div>
             :
-            /* Microphone Icon -- to start recording: */
+            /* Microphone Icon: */
             <MicrophoneIcon className="w-5 h-5 text-black"/>
           }
         </button>
