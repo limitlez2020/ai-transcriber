@@ -50,24 +50,35 @@ export default function SpeechToText() {
     /* Handle errors: */
     recognition.onerror = (event) => {
       setError(event.error);
+      setIsListening(false);
     }
 
     /* Handle end of speech recognition: */
+    // recognition.onend = () => {
+    //   setIsListening(false);
+
+
+    //   // /* Restart the recognition if user is still speaking:
+    //   //  * Helpful for continuous listening, especially in mobile devices */
+    //   // if (isListening) {
+    //   //   recognition.start();
+    //   // }
+    //   // else {
+    //   //   setIsListening(false);
+    //   // }
+    // }
+
     recognition.onend = () => {
-      setIsListening(false);
-      // /* Restart the recognition if user is still speaking:
-      //  * Helpful for continuous listening, especially in mobile devices */
-      // if (isListening) {
-      //   recognition.start();
-      // }
-      // else {
-      //   setIsListening(false);
-      // }
-    }
+      if (isListening) {
+        setIsListening(false); // Temporarily set to false
+        setIsListening(true);  // Set back to true
+      }
+    };
+    
 
     /* Store the instance of recognition in recognitionRef: */
     recognitionRef.current = recognition;
-  }, []);  /* Initialize the recogntion instance when the component mounts: */
+  }, [isListening]);  /* Initialize the recogntion instance when the component mounts: */
 
 
 
@@ -77,13 +88,6 @@ export default function SpeechToText() {
     if (recognitionRef.current) {
       recognitionRef.current.start();
       setIsListening(true); 
-
-      /* Handle onend event: */
-      recognitionRef.current.onend = () => {
-        if (isListening) {
-          recognitionRef.current.start();
-        }
-      }
     }
   }
 
