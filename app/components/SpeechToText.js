@@ -77,6 +77,13 @@ export default function SpeechToText() {
     if (recognitionRef.current) {
       recognitionRef.current.start();
       setIsListening(true); 
+
+      /* Handle onend event: */
+      recognitionRef.current.onend = () => {
+        if (isListening) {
+          recognitionRef.current.start();
+        }
+      }
     }
   }
 
