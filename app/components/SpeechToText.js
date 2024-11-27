@@ -121,8 +121,8 @@ export default function SpeechToText() {
           <p className="text-sm text-black italic">{transcript}</p>
         </div>
 
-        {/* Microphone: */}
-        <button className={`${isListening? "bg-red-400" : "bg-white"} bg-white p-4 rounded-full border-2 border-black`}
+        {/* Recording Icons: */}
+        <button className={`${isListening? "bg-red-400" : "bg-white"} p-4 rounded-full border-2 border-black`}
                 onClick={isListening? stopRecording : startRecording}
         >
           {/* Change icon based on when listening or not: */}
