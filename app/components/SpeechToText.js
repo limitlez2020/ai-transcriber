@@ -95,7 +95,7 @@ export default function SpeechToText() {
 
   /* Render the component: */
   return (
-    <div className="flex flex-col w-full h-screen bg-[#fcf5eb]">
+    <div className="flex flex-col relative w-full h-screen bg-[#fcf5eb]">
       {/* Put the noise background: */}
       <div className="absolute w-full h-full opacity-5 bg-noise-patern"></div>
       {/* Header container: */}
