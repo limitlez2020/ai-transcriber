@@ -77,6 +77,12 @@ export default function SpeechToText() {
       recognitionRef.current.start();
       setIsListening(true); 
     }
+
+    // TEST: Restart the recognition if it ends based on brwoser's timeout limit:
+    recognitionRef.current.onend = () => {
+      recognitionRef.current.start();
+    }
+
   }
 
   /* Handle stop recording audio */
