@@ -95,9 +95,11 @@ export default function SpeechToText() {
 
   /* Render the component: */
   return (
-    <div className="flex flex-col relative w-full h-screen bg-[#fcf5eb]">
+    <div className="flex flex-col relative w-full min-h-screen bg-[#fcf5eb]">
+    {/* <div className="flex flex-col relative w-full h-screen bg-[#fcf5eb]"> */}
       {/* Put the noise background: */}
       <div className="absolute w-full h-full opacity-5 bg-noise-patern"></div>
+      
       {/* Header container: */}
       <div className="flex relative items-center justify-center pt-7">
         {/* Box with shadow: */}
@@ -118,14 +120,15 @@ export default function SpeechToText() {
       {/* Main Content Container: */}
       <div className="flex flex-col flex-1 items-center justify-center gap-5">
         {/* Transcript Box: */}
-        <div className="flex flex-col sm:w-1/2 w-4/5 h-1/2 border-2 border-black rounded-xl p-4 z-10">
+        <div className="flex flex-col sm:w-1/2 w-4/5 h-[44.7vh] border-2 border-black rounded-xl p-4 z-10">
           {/* Header: */}
           <p className="text-sm text-black font-semibold pb-3">Transcript:</p>
 
-          {/* Transcript: */}
-          <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-[#676767] scrollbar-track-[#f4ede4]">
-            <p className="text-sm text-black italic pr-2">
-              {transcript}
+          {/* Scrollable Transcript: */}
+          <div className="overflow-y-auto scrollbar-thin scrollbar-thumb-[#676767] scrollbar-track-[#f4ede4]">
+            <p className="text-sm text-black italic pr-4">
+              {/* {transcript} */}
+              {`Lorem ipsum dolor sit amet `.repeat(100)}
             </p>
           </div>
         </div>
