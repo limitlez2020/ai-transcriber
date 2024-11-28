@@ -41,20 +41,10 @@ export default function SpeechToText() {
 
     /* Update the transcript: */
     recognition.onresult = async function (event) {
-      // const results = Array.from(event.results)
-      //   .map((result) => result[0].transcript)
-      //   .join(""); /* Join the partial results */
-      // setTranscript(results);
-
-      let finalTranscript = "";
-      for (let i = event.resultIndex; i < event.results.length; i++) {
-        const result = event.results[i];
-        if (result.isFinal) {
-          finalTranscript += result[0].transcript;
-        }
-      }
-  
-      setTranscript((prev) => prev + finalTranscript); // Append only finalized text
+      const results = Array.from(event.results)
+        .map((result) => result[0].transcript)
+        .join(""); /* Join the partial results */
+      setTranscript(results);
     }
 
     /* Handle errors: */
