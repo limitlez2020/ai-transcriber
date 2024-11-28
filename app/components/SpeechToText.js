@@ -96,7 +96,6 @@ export default function SpeechToText() {
   /* Render the component: */
   return (
     <div className="flex flex-col relative w-full min-h-screen bg-[#fcf5eb]">
-    {/* <div className="flex flex-col relative w-full h-screen bg-[#fcf5eb]"> */}
       {/* Put the noise background: */}
       <div className="absolute w-full h-full opacity-5 bg-noise-patern"></div>
       
@@ -127,8 +126,7 @@ export default function SpeechToText() {
           {/* Scrollable Transcript: */}
           <div className="overflow-y-auto scrollbar-thin scrollbar-thumb-[#676767] scrollbar-track-[#f4ede4]">
             <p className="text-sm text-black italic pr-4">
-              {/* {transcript} */}
-              {`Lorem ipsum dolor sit amet `.repeat(100)}
+              {transcript}
             </p>
           </div>
         </div>
