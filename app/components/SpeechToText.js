@@ -56,8 +56,12 @@ export default function SpeechToText() {
     /* Disable the onend event to make the recognition continuous */
     /* the onend() event is triggered when the speech recognition stops
      * e.g., when the user stops speaking or takes a long pause */
-    recognition.onend = null;
+    // recognition.onend = null;
 
+    /* Set the onend event to update the isListening state: */
+    recognition.onend = () => {
+      setIsListening(false);
+    }
     
 
     /* Store the instance of recognition in recognitionRef: */
