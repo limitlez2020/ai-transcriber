@@ -113,7 +113,7 @@ export default function SpeechToText() {
           {/* Green Box: */}
           <div className="relative w-40 text-black py-3 border-2 border-black rounded-xl bg-[#26d366] text-center">
             <p className="font-normal">
-              Voice Chat
+              AI Transcriber
             </p>
           </div>
         </div>
