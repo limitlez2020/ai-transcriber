@@ -2,13 +2,13 @@
 
 A web application that converts speech to text in real time, designed for seamless transcription of spoken words. The Speech-to-Text Transcriber is built with React and Next.js and leverages the Web Speech API for speech recognition. With a clean and intuitive interface, this app ensures a smooth transcription experience, whether on desktop or mobile devices.
 
----
+
 
 ## Project Overview
 
 The Speech-to-Text Transcriber enables users to record their speech and view the transcriptions in real time. Designed with accessibility and ease of use in mind, the application aims to provide an efficient and accurate speech-to-text experience. Although currently in its early stages, the project is actively being refined to address challenges such as mobile compatibility and transcription accuracy.
 
----
+
 
 ## Features
 
@@ -27,7 +27,7 @@ The Speech-to-Text Transcriber enables users to record their speech and view the
 - **Error Handling**:
   - Displays appropriate messages when speech recognition is not supported by the browser or when other errors occur.
 
----
+
 
 ## Technologies Used
 
@@ -37,18 +37,17 @@ The Speech-to-Text Transcriber enables users to record their speech and view the
 - **Tailwind CSS**: For designing a modern, responsive UI.
 - **Vercel**: For deploying the application.
 
----
+
 
 ## Usage
 
-Link: https://ai-transcriberr.vercel.app/
-NOTE: Works best on PCs or Laptops
+Link: https://ai-transcriberr.vercel.app/ (Works best on PCs or Laptops)
 
 1. **Start Recording**: Click the microphone button to begin transcription.
 2. **View Transcription**: Your speech will appear in real-time in the transcript box.
 3. **Stop Recording**: Click the microphone button again to stop transcription.
 
----
+
 
 ## Current Limitations
 
@@ -57,7 +56,7 @@ NOTE: Works best on PCs or Laptops
 - **Accuracy**:
   - The transcription accuracy depends on factors like background noise and microphone quality. Future updates will work on improving this.
 
----
+
 
 ## Planned Enhancements
 
@@ -70,12 +69,8 @@ NOTE: Works best on PCs or Laptops
 - **Export Options**:
   - Add functionality to save transcriptions as files for easy sharing and future reference.
 
----
+
 
 ## Authors
 
 - **David Fortune Akinremi** (moi 🙈)
-
----
-
-Stay tuned for updates as the Voice Chat Transcriber continues to evolve! ✨
