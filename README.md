@@ -1,37 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Speech-to-Text Transcriber
 
-## Getting Started
+A web application that converts speech to text in real time, designed for seamless transcription of spoken words. The Speech-to-Text Transcriber is built with React and Next.js and leverages the Web Speech API for speech recognition. With a clean and intuitive interface, this app ensures a smooth transcription experience, whether on desktop or mobile devices.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The Speech-to-Text Transcriber enables users to record their speech and view the transcriptions in real time. Designed with accessibility and ease of use in mind, the application aims to provide an efficient and accurate speech-to-text experience. Although currently in its early stages, the project is actively being refined to address challenges such as mobile compatibility and transcription accuracy.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- **Real-Time Transcription**:
+  - Converts spoken words to text in real time using the Web Speech API.
+  
+- **Continuous Speech Recognition**:
+  - Implements a loop mechanism to ensure transcription continues even after pauses in speech.
 
-To learn more about Next.js, take a look at the following resources:
+- **Responsive Design**:
+  - Fully functional on both desktop and mobile browsers, with a simple and user-friendly UI.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Scrollable Transcript Box**:
+  - Displays transcriptions in a neatly scrollable box, ensuring the page layout remains fixed as the transcript grows.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Error Handling**:
+  - Displays appropriate messages when speech recognition is not supported by the browser or when other errors occur.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologies Used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# ai-voicechat" 
+- **React**: For building the user interface.
+- **Next.js**: For server-side rendering and structuring the application.
+- **Web Speech API**: For speech-to-text conversion and transcription functionality.
+- **Tailwind CSS**: For designing a modern, responsive UI.
+- **Vercel**: For deploying the application.
+
+---
+
+## Usage
+
+Link: https://ai-transcriberr.vercel.app/
+NOTE: Works best on PCs or Laptops
+
+1. **Start Recording**: Click the microphone button to begin transcription.
+2. **View Transcription**: Your speech will appear in real-time in the transcript box.
+3. **Stop Recording**: Click the microphone button again to stop transcription.
+
+---
+
+## Current Limitations
+
+- **Mobile Compatibility**:
+  - Some mobile browsers may still experience issues with speech recognition behavior.
+- **Accuracy**:
+  - The transcription accuracy depends on factors like background noise and microphone quality. Future updates will work on improving this.
+
+---
+
+## Planned Enhancements
+
+- **Improved Mobile Support**:
+  - Address known issues with mobile browsers to provide a consistent experience across devices.
+  
+- **Enhanced Filtering**:
+  - Refine the speech-to-text algorithm to prevent repeated words and ensure smoother transcription.
+
+- **Export Options**:
+  - Add functionality to save transcriptions as files for easy sharing and future reference.
+
+---
+
+## Authors
+
+- **David Fortune Akinremi** (moi 🙈)
+
+---
+
+Stay tuned for updates as the Voice Chat Transcriber continues to evolve! ✨
